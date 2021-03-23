@@ -1,3 +1,7 @@
+export const sum = (num1, num2) => {
+  return num1 + num2
+}
+
 export const URLSlug = (words) => (
   words
     .replace(/\s+/g, '-')
@@ -26,11 +30,13 @@ const months = [
   'december'
 ];
 
-export const monthName = (place) => (
-  months[place]
-    ? months[place]
-    : 'There are only 12 months!'
-);
+export const monthName = place => {
+  if (months[place]) {
+    return months[place]
+  }
+
+  throw new Error('There are only 12 months!')
+}
 
 export const hasPrefix = (str, prefix) => str.startsWith(prefix)
 
