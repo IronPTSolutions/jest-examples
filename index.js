@@ -8,12 +8,16 @@ export const URLSlug = (words) => (
     .toLowerCase()
 );
 
-export const initials = (name) => (
-  name
+export const initials = (name) => {
+  if (typeof name !== 'string') {
+    throw new Error ('name input must be a string')
+  }
+  
+  return name
     .split(' ')
     .map(word => `${word.charAt(0).toUpperCase()}.`)
     .join('')
-);
+};
 
 const months = [
   'january',
